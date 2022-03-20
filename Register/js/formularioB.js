@@ -2,51 +2,49 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	texto1: /^[[a-zA-ZÀ-ÿ\s0-9\ \_\-]{4,50}$/, // Letras, numeros, guion y guion_bajo.
-	texto2: /^[a-zA-ZÀ-ÿ\s0-9]{1,200}$/, // Letras y espacios, pueden llevar acentos.
-	num: /^[1-9]{1,2}$/, // 1 a 2 digitos.
-	num2: /^[1-9]{1}$/,
+	texto1: /^[[a-zA-ZÀ-ÿ\s0-9\ \/\-\(\)\=\?\¿\,\;\.\+\*\!\¡]{2,50}$/, // Letras, numeros, guion y guion_bajo
+	texto2: /^[a-zA-ZÀ-ÿ\s0-9\.]{4,200}$/, // Letras y espacios, pueden llevar acentos.
+    texto3: /^[a-zA-Z0-9]{6}$/,
+	num: /^[0-9]{1,4}$/, // 1 a 2 diitos.
+    num1: /^[0-9]{1,4}$/,
+	num2: /^[0-9]{13}$/,
 	
 }
 
 const campos = {
+	isbn: false,
+	cod: false,
 	nombre: false,
 	desc: false,
-	ubi: false,
-	dia: false,
-	hora: false,
-	limit: false,
-	dura: false
+	anno: false,
+	pag: false
 	
 }
 
 const ValidarFormulario = (e) => {
 	switch(e.target.name) {
-		case "nombre":
-			ValidarCmpo(expresiones.texto1, e.target, 'nombre');
+		case "isbn":
+			ValidarCmpo(expresiones.num2, e.target, 'isbn'); v
 		break;		
 		
+		case "cod":
+			ValidarCmpo(expresiones.texto3, e.target, 'cod');		
+		break;
+
+		case "nombre":
+			ValidarCmpo(expresiones.texto1, e.target, 'nombre');
+		break;
+
 		case "desc":
-			ValidarCmpo(expresiones.texto2, e.target, 'desc');		
+			ValidarCmpo(expresiones.texto2, e.target, 'desc');
 		break;
 
-		case "ubi":
-			ValidarCmpo(expresiones.texto1, e.target, 'ubi');
+		case "anno":
+			ValidarCmpo(expresiones.num, e.target, 'anno');
 		break;
 
-		case "dia":
-			ValidarCmpo(expresiones.texto1, e.target, 'dia');
-		break;
-
-		case "hora":
-		break;
-
-		case "limit":
-			ValidarCmpo(expresiones.num, e.target, 'limit');
-		break;
-
-		case "dura":
-			ValidarCmpo(expresiones.num2, e.target, 'dura');
+		case "pag":
+			ValidarCmpo(expresiones.num, e.target, 'pag');
 		break;
 
 	}
@@ -78,7 +76,7 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) =>{
 	e.preventDefault();
 
-	if( campos.nombre && campos.desc && campos.ubi && campos.dia && campos.limit && campos.dura){
+	if( campos.nombre && campos.isbn && campos.cod && campos.desc && campos.anno && campos.pag){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');

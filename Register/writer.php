@@ -1,10 +1,10 @@
 <?php
 
     if(isset($_POST['submit'])){
-        $nom_edit=$_POST['nombre'];
-        $ciud_edit=$_POST['ciud'];
-        $direc_edit=$_POST['edit'];
-        $tel_edit=$_POST['tel'];
+        $nom_aut=$_POST['nombre'];
+        $orige_aut=$_POST['orige'];
+        $estado_aut=$_POST['estado'];
+        
     }
 ?>
 
@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Registrar Editorial</title>
+	<title>Registrar un escritor</title>
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/estilos.css">
@@ -29,46 +29,34 @@
                     <label for="nombre" class="formulario__label">Nombre:</label>
                     <div class="formulario__grupo-input">
                     <input type="text" class="formulario__input" id="nombre" name="nombre" value="<?php
-                    if(isset($nom_edit)){echo $nom_edit;}?>">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">Rellena este campo solo con letras y números</p>
-                </div>
-                <!-- ///////////  -->
-
-                <!-- Grupo: Ciudad -->
-                <div class="formulario__grupo" id="grupo__ciud">
-                    <label for="ciud" class="formulario__label">Ciudad: </label>
-                    <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" id="ciud" name="ciud" value="<?php 
-                    if(isset($ciud_edit)){echo $ciud_edit;}?>">
+                    if(isset($nom_aut)){echo $nom_aut;}?>">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">Rellena este campo solo con letras</p>
                 </div>
                 <!-- ///////////  -->
 
-                <!-- Grupo: Dirección -->
-                <div class="formulario__grupo" id="grupo__direc">
-                    <label for="direc" class="formulario__label">Dirección: </label>
+                <!-- Grupo: orige -->
+                <div class="formulario__grupo" id="grupo__orige">
+                    <label for="orige" class="formulario__label">Pais de origen: </label>
                     <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" id="direc" name="direc" value="<?php 
-                    if(isset($direc_edit)){echo $direc_edit;}?>">
+                    <input type="textarea" class="formulario__input" id="orige" name="orige" value="<?php 
+                    if(isset($orige_aut)){echo $orige_aut;}?>">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">Rellena este campo solo con números, letras y estos signos (# -)</p>
+                    <p class="formulario__input-error">Rellena este campo solo con letras</p>
                 </div>
                 <!-- ///////////  -->
 
-                <!-- Grupo: Telefono -->
-                <div class="formulario__grupo" id="grupo__tel">
-                    <label for="tel" class="formulario__label">Telefono: </label>
+                <!-- Grupo: estado -->
+                <div class="formulario__grupo" id="grupo__estado">
+                    <label for="estado" class="formulario__label">Estado: </label>
                     <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" id="tel" name="tel" value="<?php 
-                    if(isset($tel_edit)){echo $tel_edit;}?>">
+                    <input type="text" class="formulario__input" id="estado" name="estado" value="<?php 
+                    if(isset($estado_aut)){echo $estado_aut;}?>">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">Rellena este campo con un número de telefono válido, usa numeros y signo +</p>
+                    <p class="formulario__input-error">Rellena este campo solo con letras</p>
                 </div>
                 <!-- ///////////  -->
 
@@ -79,14 +67,14 @@
 
 			<div class="formulario__grupo formulario__grupo-btn-enviar">
 				<button type="submit" class="formulario__btn">Enviar</button>
-				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Editorial registrada exitosamente!</p>
+				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Escritor registrado exitosamente!</p>
 			</div>
 
                 
             </form>
         </main>
 
-        <script src="js/formularioEd.js"></script>
+        <script src="js/formularioW.js"></script>
 	    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
         
 

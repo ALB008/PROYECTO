@@ -2,51 +2,53 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	texto1: /^[[a-zA-ZÀ-ÿ\s0-9\ \_\-]{4,50}$/, // Letras, numeros, guion y guion_bajo.
-	texto2: /^[a-zA-ZÀ-ÿ\s0-9]{1,200}$/, // Letras y espacios, pueden llevar acentos.
-	num: /^[1-9]{1,2}$/, // 1 a 2 digitos.
-	num2: /^[1-9]{1}$/,
+    text: /^[[a-zA-ZÀ-ÿ\s]{4,10}$/,
+    texto: /^[[a-zA-ZÀ-ÿ\s\ ]{4,30}$/,
+	texto1: /^[[a-zA-ZÀ-ÿ\s\ ]{4,70}$/, // Letras, numeros, guion y guion_bajo
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	num: /^[0-9]{7,20}$/, // 1 a 2 digitos.
+	num2: /^[0-9]{7,13}$/,
 	
 }
 
 const campos = {
+	id: false,
 	nombre: false,
-	desc: false,
-	ubi: false,
-	dia: false,
-	hora: false,
-	limit: false,
-	dura: false
-	
+	apell: false,
+	tel: false,
+	email: false,
+	gen: false,
+	estud: false
 }
 
 const ValidarFormulario = (e) => {
 	switch(e.target.name) {
-		case "nombre":
-			ValidarCmpo(expresiones.texto1, e.target, 'nombre');
+		case "id":
+			ValidarCmpo(expresiones.num, e.target, 'id');
 		break;		
 		
-		case "desc":
-			ValidarCmpo(expresiones.texto2, e.target, 'desc');		
+		case "nombre":
+			ValidarCmpo(expresiones.texto, e.target, 'nombre');		
 		break;
 
-		case "ubi":
-			ValidarCmpo(expresiones.texto1, e.target, 'ubi');
+		case "apell":
+			ValidarCmpo(expresiones.texto1, e.target, 'apell');
 		break;
 
-		case "dia":
-			ValidarCmpo(expresiones.texto1, e.target, 'dia');
+		case "tel":
+			ValidarCmpo(expresiones.num2, e.target, 'tel');
 		break;
 
-		case "hora":
+		case "email":
+            ValidarCmpo(expresiones.correo, e.target, 'email');
 		break;
 
-		case "limit":
-			ValidarCmpo(expresiones.num, e.target, 'limit');
+		case "gen":
+			ValidarCmpo(expresiones.text, e.target, 'gen');
 		break;
 
-		case "dura":
-			ValidarCmpo(expresiones.num2, e.target, 'dura');
+		case "estud":
+			ValidarCmpo(expresiones.texto, e.target, 'estud');
 		break;
 
 	}
@@ -78,7 +80,7 @@ inputs.forEach((input) => {
 formulario.addEventListener('submit', (e) =>{
 	e.preventDefault();
 
-	if( campos.nombre && campos.desc && campos.ubi && campos.dia && campos.limit && campos.dura){
+	if( campos.id && campos.nombre && campos.apell && campos.tel && campos.email && campos.gen && campos.estud){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
