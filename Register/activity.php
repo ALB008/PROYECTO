@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_POST['submit'])){
         $nom_activ=$_POST['nombre'];
         $desc_activ=$_POST['desc'];
@@ -142,7 +143,7 @@
             </form>
         </main>
 
-        <script src="js/formularioA.php"></script>
+        <script src="js/formularioA.js"></script>
 	    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
         
 

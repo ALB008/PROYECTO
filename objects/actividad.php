@@ -1,6 +1,9 @@
 <?php
 
+include_once('conexion.php');
+
 class actividad{
+
     private $NomA;
     private $DescA;
     private $UbiA;
@@ -8,6 +11,8 @@ class actividad{
     private $HoraA;
     private $LimitA;
     private $DuracA;
+
+    
 
 public function Actividad__(){
 

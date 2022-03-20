@@ -1,4 +1,3 @@
-<script>
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
@@ -87,22 +86,6 @@ formulario.addEventListener('submit', (e) =>{
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
 		},5000);
 
-		include_once "DAO/DAOactividad.php";
-            $id_usu=$_POST['id'];
-            $nombre_usu=$_POST['nombre'];
-            $nacim_usu=$_POST['nacim'];
-            $tel_usu=$_POST['tel'];
-            $correo_usu=$_POST['correo'];
-            $x=0;
-
-            $datos=array($id_usu,$nombre_usu,$nacim_usu,$tel_usu,$correo_usu);
-            $obj= new usuario();
-            if ($obj->create($datos)==1){
-                header("location: Usuarios.php");
-            } else{
-                echo "<br>Fallo al insertar";
-            }
-
 		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
 			icono.classList.remove('formulario__grupo-correcto');
 		});
@@ -113,4 +96,3 @@ formulario.addEventListener('submit', (e) =>{
 		},5000);
 	}
 });
-</script>
