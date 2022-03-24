@@ -1,6 +1,6 @@
 <?php
 
-include_once("../util/conexion.php");
+include_once("util/conexion.php");
     
     class DAOactividad extends conectar{
         public function createActividad(){
